@@ -9,6 +9,9 @@ gem 'devise'
 # MySQL2 Database
 gem 'mysql2', '~>0.3.15'
 
+# Use Haml
+gem 'haml-rails'
+
 
 
 
