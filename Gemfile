@@ -3,6 +3,17 @@ source 'https://rubygems.org'
 # Force Ruby Version
 ruby '2.4.0'
 
+# Devise for Users table
+gem 'devise'
+
+# MySQL2 Database
+gem 'mysql2', '~>0.3.15'
+
+
+
+
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
