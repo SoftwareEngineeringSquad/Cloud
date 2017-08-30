@@ -76,7 +76,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Force Domain name in production
-  Rails.application.routes.default_url_options[:host] = 'software-squad.com'
 end
