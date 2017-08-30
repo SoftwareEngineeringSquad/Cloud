@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Force Domain name in production
-  config.action_controller.default_url_options = { host: 'software-squad.com' }
+  Rails.application.routes.default_url_options[:host] = 'software-squad.com'
 end
