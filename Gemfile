@@ -12,9 +12,6 @@ gem 'mysql2', '~>0.3.15'
 # Use Haml
 gem 'haml-rails'
 
-# Canonical Host
-gem 'rack-canonical-host'
-
 
 
 
