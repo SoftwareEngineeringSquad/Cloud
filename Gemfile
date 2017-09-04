@@ -12,6 +12,8 @@ gem 'mysql2', '~>0.3.15'
 # Use Haml
 gem 'haml-rails'
 
+# Secrets
+gem 'figaro'
 
 
 
