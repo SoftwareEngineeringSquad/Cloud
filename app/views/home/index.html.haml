@@ -2,3 +2,16 @@
   Hello
   = (@name || 'Team') + '!'
 %h3 This is our Rails Application so far...
+%p
+  Using Rails Version:
+  = Rails.version
+  %br
+  Rails Environment:
+  = Rails.env
+  %br
+  Using Ruby Version:
+  = RUBY_VERSION
+  %br
+  Page loaded on
+  = day = Date.current.day.ordinalize
+  = Time.current.strftime("%A %B #{day}, %Y at %l:%M%P")
