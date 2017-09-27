@@ -10,4 +10,5 @@
     .topbar
       .notice= notice
       .alert= alert
+      = link_to 'Logout', destroy_user_session_path, method: :delete
     = yield
