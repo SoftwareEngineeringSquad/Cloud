@@ -7,11 +7,9 @@ class AddFieldsToTables < ActiveRecord::Migration
     add_column :items, :category_id, :integer, :null => false
     add_column :items, :user_id, :integer, :null => false
 
-    add_column :category, :name, :string, :null => false
-    add_column :location, :city, :string, :null => false
-    add_column :location, :state, :string, :null => false
-
-
+    add_column :categories, :name, :string, :null => false
+    add_column :locations, :city, :string, :null => false
+    add_column :locations, :state, :string, :null => false
 
   end
 end
