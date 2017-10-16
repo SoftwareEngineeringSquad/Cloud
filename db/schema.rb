@@ -11,21 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927191943) do
+ActiveRecord::Schema.define(version: 20171016181425) do
 
   create_table "categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255, null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
+    t.string   "name",        limit: 255,                                           null: false
+    t.float    "price",       limit: 24,  default: 0.0,                             null: false
+    t.string   "description", limit: 255, default: "This item has no description.", null: false
+    t.integer  "location_id", limit: 4,                                             null: false
+    t.integer  "category_id", limit: 4,                                             null: false
+    t.integer  "user_id",     limit: 4,                                             null: false
   end
 
   create_table "locations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "city",       limit: 255, null: false
+    t.string   "state",      limit: 255, null: false
   end
 
   create_table "users", force: :cascade do |t|
