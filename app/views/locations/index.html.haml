@@ -3,13 +3,17 @@
 %table
   %thead
     %tr
+      %th City
+      %th State
       %th
       %th
       %th
 
   %tbody
-    - @locations.each do |location|
+    - @locations.order(:state).each do |location|
       %tr
+        %td= location.city
+        %td= location.state
         %td= link_to 'Show', location
         %td= link_to 'Edit', edit_location_path(location)
         %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
