@@ -20,7 +20,10 @@ body {
 }
 
 .btn {
-    color: white !important
+    color: white !important;
+}
+.btn-link {
+    color: #333 !important;
 }
 
 .topbar {
