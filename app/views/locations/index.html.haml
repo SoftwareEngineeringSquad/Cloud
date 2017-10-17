@@ -10,7 +10,7 @@
       %th
 
   %tbody
-    - @locations.order(:state).each do |location|
+    - @locations.order(:state, :city).each do |location|
       %tr
         %td= location.city
         %td= location.state

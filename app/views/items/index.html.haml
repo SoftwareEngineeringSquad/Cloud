@@ -14,7 +14,8 @@
   %tbody
     - @items.order(:created_at).each do |item|
       %tr
-        %td= item.created_at
+        - day = item.created_at.day.ordinalize
+        %td= item.created_at.strftime("%A %B #{day}, %Y at %l:%M%P")
         %td= item.name
         %td= "$#{item.price}"
         %td= item.description
