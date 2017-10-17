@@ -13,7 +13,7 @@
         %td= location.city
         %td= location.state
         %td.text-nowrap
-          = link_to 'View', location, :class => 'btn btn-success'
+          = link_to 'View', location, :class => 'btn btn-primary'
           = link_to 'Edit', edit_location_path(location), :class => 'btn btn-warning'
           = link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
 

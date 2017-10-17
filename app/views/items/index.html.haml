@@ -16,7 +16,7 @@
         %td= "#{number_to_currency(item.price)}"
         %td= item.created_at.strftime("%B #{day}, %Y at %l:%M%P")
         %td.text-nowrap
-          = link_to 'View', item, :class => 'btn btn-success'
+          = link_to 'View', item, :class => 'btn btn-primary'
           = link_to 'Edit', edit_item_path(item), :class => 'btn btn-warning'
           = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
 
