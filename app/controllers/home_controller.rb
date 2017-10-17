@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @name = params[:name]
+    redirect_to items_path
   end
 
 end

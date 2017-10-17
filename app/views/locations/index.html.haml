@@ -1,12 +1,10 @@
 %h1 Listing locations
 
-%table
+%table.table
   %thead
-    %tr
+    %tr.table-info
       %th City
       %th State
-      %th
-      %th
       %th
 
   %tbody
@@ -14,10 +12,11 @@
       %tr
         %td= location.city
         %td= location.state
-        %td= link_to 'Show', location
-        %td= link_to 'Edit', edit_location_path(location)
-        %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
+        %td.text-nowrap
+          = link_to 'View', location, :class => 'btn btn-success'
+          = link_to 'Edit', edit_location_path(location), :class => 'btn btn-warning'
+          = link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
 
 %br
 
-= link_to 'New Location', new_location_path
+= link_to '+ New Location', new_location_path, :class => 'btn btn-success'

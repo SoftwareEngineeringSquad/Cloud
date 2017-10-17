@@ -1,21 +1,20 @@
 %h1 Listing categories
 
-%table
+%table.table
   %thead
-    %tr
+    %tr.table-info
       %th Name
-      %th
-      %th
       %th
 
   %tbody
     - @categories.order(:name).each do |category|
       %tr
         %td= category.name
-        %td= link_to 'Show', category
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+        %td.text-nowrap
+          = link_to 'View', category, :class => 'btn btn-success'
+          = link_to 'Edit', edit_category_path(category), :class => 'btn btn-warning'
+          = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
 
 %br
 
-= link_to 'New Category', new_category_path
+= link_to '+ New Category', new_category_path, :class => 'btn btn-success'

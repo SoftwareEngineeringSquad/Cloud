@@ -10,7 +10,12 @@
   %body
 
     .topbar
-    .notice= notice
-    .alert= alert
-    = link_to 'Logout', destroy_user_session_path, method: :delete
+      %h4.float-left.m-0.notice= notice
+      %h4.float-left.m-0.alert= alert
+      .float-right
+        - if current_user
+          = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'btn btn-primary'
+        - else
+          = link_to "Sign up", new_registration_path(:user), :class => 'btn btn-primary'
+      .clearfix
     = yield
