@@ -1,25 +1,36 @@
-%h1 Listing items
+%h1.float-left Items For Sale
+= link_to 'Post a New Item for Sale', new_item_path, :class => 'btn btn-success float-right m-rsm'
+.clearfix
 
 %table.table
   %thead
     %tr.table-info
       %th.w-25 Item Name
-      %th.w-25 Price
+      %th.w-20 Price
+      %th.w-20 Seller
       %th.w-25 Date Posted
-      %th
+      %th.w-10
 
   %tbody
     - @items.order(:created_at => :desc).each do |item|
+      - belongs_to_current_user = item.user.id == current_user.id
+      - day = item.created_at.day.ordinalize
       %tr
-        - day = item.created_at.day.ordinalize
         %td= item.name
-        %td= "#{number_to_currency(item.price)}"
+        %td= number_to_currency(item.price)
+        %td= belongs_to_current_user ? 'Me' : item.user.email
         %td= item.created_at.strftime("%B #{day}, %Y at %l:%M%P")
         %td.text-nowrap
-          = link_to 'View', item, :class => 'btn btn-primary'
-          = link_to 'Edit', edit_item_path(item), :class => 'btn btn-warning'
-          = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
+          - if belongs_to_current_user
+            - if item.is_sold?
+              = link_to 'Sold', item, :class => 'btn btn-primary'
+            - else
+              = link_to 'Edit', edit_item_path(item), :class => 'btn btn-warning'
+            = link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
+          - else item.is_sold?
+            - if item.is_sold?
+              = link_to 'Buy', item, :class => 'btn btn-primary', data: { confirm: "Are you sure you want to buy this #{item.name} for #{number_to_currency(item.price)}" }
+            - else
+              %button{:disabled => 'disabled', :class => 'btn btn-primary'} Sold
 
 %br
-
-= link_to '+ New Item', new_item_path, :class => 'btn btn-success'

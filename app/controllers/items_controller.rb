@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    # if current_user is not the seller and item isn't sold yet, sell it now.
+    if @item.can_be_sold_to? current_user
+      @item.sell_to(current_user)
+    end
   end
 
   # GET /items/new

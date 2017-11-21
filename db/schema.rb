@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016181425) do
+ActiveRecord::Schema.define(version: 20171121021150) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171016181425) do
     t.integer  "location_id", limit: 4,                                             null: false
     t.integer  "category_id", limit: 4,                                             null: false
     t.integer  "user_id",     limit: 4,                                             null: false
+    t.integer  "buyer_id",    limit: 4
   end
 
   create_table "locations", force: :cascade do |t|
