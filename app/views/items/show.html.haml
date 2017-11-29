@@ -2,16 +2,21 @@
 
 %h4= "#{@item.name}: #{number_to_currency(@item.price)}"
 
-// current_user is the seller
-- if @item.is_seller? current_user
-  %h5
-    This item is sold. Contact the buyer at the email address:
-    = @item.buyer.email
+- if @item.is_sold?
+
+  - if @item.is_seller? current_user
+    %h5
+      This item is sold. Contact the buyer at the email address:
+      = @item.buyer.email
+
+  - else
+    %h5
+      The item is yours! The seller will get in contact with you at your email address:
+      = current_user.email
 
 - else
-  %h5
-    The item is yours! The seller will get in contact with you at your email address:
-    = current_user.email
+
+  %h5 This item has not been sold yet!
 
 %br
 = link_to 'Back', items_path, :class => 'btn btn-primary'
